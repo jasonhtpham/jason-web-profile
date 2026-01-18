@@ -6,6 +6,7 @@ export interface Profile {
   email: string;
   location: string;
   avatar_url?: string;
+  linkedin?: string;
   created_at: string;
   updated_at: string;
 }

@@ -1,3 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-glow {
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 55%),
+      radial-gradient(circle at 30% 20%, rgba(129, 140, 248, 0.18), transparent 60%),
+      radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.16), transparent 50%);
+  }
+
+  .glass-card {
+    background: rgba(15, 23, 42, 0.62);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    box-shadow:
+      0 0 30px rgba(56, 189, 248, 0.12),
+      inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+  }
+
+  .data-chip {
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: rgba(226, 232, 240, 0.9);
+  }
+
+  .node-pulse {
+    animation: node-pulse 6s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(56, 189, 248, 0) 65%);
+  }
+
+  .glow-drift {
+    animation: glow-drift 18s ease-in-out infinite alternate;
+  }
+
+  .grid-drift {
+    animation: grid-drift 22s linear infinite;
+  }
+
+  .scanline {
+    background: linear-gradient(120deg, transparent 35%, rgba(56, 189, 248, 0.12) 50%, transparent 65%);
+    animation: scanline 12s linear infinite;
+    mix-blend-mode: screen;
+  }
+}
+
+@keyframes node-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
+}
+
+@keyframes glow-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-3%, 2%, 0) scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(3%, -2%, 0) scale(1.08);
+    opacity: 0.75;
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 96px 96px;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
